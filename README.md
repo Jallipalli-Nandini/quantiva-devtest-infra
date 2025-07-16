@@ -1,8 +1,5 @@
 # quantiva-devtest-infra
 Automated Dev/Test infrastructure deployment using AWS CloudFormation
-# Quantiva Dev/Test Infrastructure Deployment
-
-This repository automates the provisioning of Dev/Test AWS infrastructure for Quantiva Labs using AWS CloudFormation.
 
 ---
 
