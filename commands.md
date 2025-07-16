@@ -1,12 +1,12 @@
 #verify the template syntax 
 
-aws cloudformation validate-template --template-body file://example.yaml
+aws cloudformation validate-template --template-body file://tasktemplate.yaml
 
 #create stack
 
 aws cloudformation create-stack \
-  --stack-name my-infra-stack \
-  --template-body file://example.yaml \
+  --stack-name TaskStack \
+  --template-body file://tasktemplate.yaml \
   --parameters ParameterKey=KeyName,ParameterValue=cwinkp ParameterKey=InstanceType,ParameterValue=t2.micro \
   --capabilities CAPABILITY_NAMED_IAM \
   --region us-west-1
@@ -14,14 +14,14 @@ aws cloudformation create-stack \
 #describe stack
 
 aws cloudformation describe-stacks \
-  --stack-name my-infra-stack \
+  --stack-name TaskStack \
   --region us-west-1
 
 #update stack
 
 aws cloudformation update-stack \
-  --stack-name my-infra-stack \
-  --template-body file://example.yaml \
+  --stack-name TaskStack \
+  --template-body file://tasktemplate.yaml \
   --parameters ParameterKey=KeyName,ParameterValue=cwinkp ParameterKey=InstanceType,ParameterValue=t2.micro \
   --capabilities CAPABILITY_NAMED_IAM \
   --region us-west-1
@@ -29,7 +29,7 @@ aws cloudformation update-stack \
 #delete stack
 
 aws cloudformation delete-stack \
-  --stack-name my-infra-stack \
+  --stack-name TaskStack \
   --region us-west-1
 
 #note
