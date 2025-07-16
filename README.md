@@ -30,13 +30,13 @@ Automated Dev/Test infrastructure deployment using AWS CloudFormation
 ``` bash
 
 ### 1. Validate Template
-aws cloudformation validate-template --template-body file://example.yaml
+aws cloudformation validate-template --template-body file://tasktemplate.yaml
 
 ### 2. create stack
 
 aws cloudformation create-stack \
   --stack-name my-infra-stack \
-  --template-body file://example.yaml \
+  --template-body file://tasktemplate.yaml \
   --parameters ParameterKey=KeyName,ParameterValue=cwinkp ParameterKey=InstanceType,ParameterValue=t2.micro \
   --capabilities CAPABILITY_NAMED_IAM \
   --region us-west-1
@@ -44,14 +44,14 @@ aws cloudformation create-stack \
 ### 3. Describe Stack
 
 aws cloudformation describe-stacks \
-  --stack-name my-infra-stack \
+  --stack-name TaskStack \
   --region us-west-1
 
 ### 4. Update Stack
 
 aws cloudformation update-stack \
-  --stack-name my-infra-stack \
-  --template-body file://example.yaml \
+  --stack-name TaskStack \
+  --template-body file://Tasktemplate.yaml \
   --parameters ParameterKey=KeyName,ParameterValue=cwinkp ParameterKey=InstanceType,ParameterValue=t2.micro \
   --capabilities CAPABILITY_NAMED_IAM \
   --region us-west-1
@@ -59,5 +59,5 @@ aws cloudformation update-stack \
 ### 5. Delete Stack
 
 aws cloudformation delete-stack \
-  --stack-name my-infra-stack \
+  --stack-name TaskStack \
   --region us-west-1
