@@ -19,7 +19,7 @@ Automated Dev/Test infrastructure deployment using AWS CloudFormation
 
 | File          | Description                                |
 |---------------|--------------------------------------------|
-| `example.yaml` | Main CloudFormation template               |
+| `tasktemplate.yaml` | Main CloudFormation template               |
 | `commands.md`  | AWS CLI steps to deploy and manage stack  |
 | `.gitignore`   | Ignores local/temporary files (optional)  |
 
@@ -35,7 +35,7 @@ aws cloudformation validate-template --template-body file://tasktemplate.yaml
 ### 2. create stack
 
 aws cloudformation create-stack \
-  --stack-name my-infra-stack \
+  --stack-name TaskStack \
   --template-body file://tasktemplate.yaml \
   --parameters ParameterKey=KeyName,ParameterValue=cwinkp ParameterKey=InstanceType,ParameterValue=t2.micro \
   --capabilities CAPABILITY_NAMED_IAM \
